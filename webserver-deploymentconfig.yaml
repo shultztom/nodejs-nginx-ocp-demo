@@ -1,0 +1,49 @@
+apiVersion: v1
+kind: DeploymentConfig
+metadata:
+  annotations:
+    kompose.cmd: kompose convert --provider=openshift
+    kompose.version: 1.19.0 (f63a961c)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: webserver
+  name: webserver
+spec:
+  replicas: 1
+  selector:
+    io.kompose.service: webserver
+  strategy:
+    resources: {}
+    type: Recreate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: webserver
+    spec:
+      containers:
+      - image: ' '
+        name: webserver
+        ports:
+        - containerPort: 8080
+        resources: {}
+        volumeMounts:
+        - mountPath: /etc/nginx/conf.d
+          name: webserver-claim0
+      restartPolicy: Always
+      volumes:
+      - name: webserver-claim0
+        persistentVolumeClaim:
+          claimName: webserver-claim0
+  test: false
+  triggers:
+  - type: ConfigChange
+  - imageChangeParams:
+      automatic: true
+      containerNames:
+      - webserver
+      from:
+        kind: ImageStreamTag
+        name: webserver:latest
+    type: ImageChange
+status: {}
