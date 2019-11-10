@@ -1,0 +1,50 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewApp
+  creationTimestamp: "2019-11-10T02:48:36Z"
+  labels:
+    app: nodejs-ocp-demo
+    name: nodejs-ocp-demo
+  name: nodejs-ocp-demo
+  namespace: nodejs-ocp-demo
+  resourceVersion: "9733"
+  selfLink: >-
+    /apis/build.openshift.io/v1/namespaces/nodejs-ocp-demo/buildconfigs/nodejs-ocp-demo
+  uid: 97f0293d-0364-11ea-89c1-00155d010241
+spec:
+  failedBuildsHistoryLimit: 5
+  nodeSelector: null
+  output:
+    to:
+      kind: ImageStreamTag
+      name: "nodejs-ocp-demo:latest"
+  postCommit: {}
+  resources: {}
+  runPolicy: Serial
+  source:
+    git:
+      uri: "https://github.com/shultztom/nodejs-ocp-demo.git"
+    type: Git
+  strategy:
+    dockerStrategy:
+      from:
+        kind: ImageStreamTag
+        name: "node:12.13.0-alpine"
+    type: Docker
+  successfulBuildsHistoryLimit: 5
+  triggers:
+    - github:
+        secret: SECRET_HERE
+      type: GitHub
+    - generic:
+        secret: SECRET_HERE
+      type: Generic
+    - type: ConfigChange
+    - imageChange:
+        lastTriggeredImageID: >-
+          node@sha256:36a15a00134761c19e4438d948ad01eb9323811e1edd947562da3fc06ae78b09
+      type: ImageChange
+status:
+  lastVersion: 1

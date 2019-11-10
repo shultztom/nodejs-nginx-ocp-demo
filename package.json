@@ -1,0 +1,28 @@
+{
+  "name": "nodejs-ocp-demo",
+  "version": "1.2.0",
+  "scripts": {
+    "start": "node ./bin/www",
+    "start:dev": "nodemon ./bin/www",
+    "start:image": "./dockerScripts/runImage.sh",
+    "login:docker": "./dockerScipts/login.sh",
+    "build": "./dockerScripts/build.sh",
+    "push": "./dockerScripts/push.sh",
+    "prune:all": "./dockerScripts/prune.sh",
+    "docker-compose-version": "./dockerScripts/docker-compose-version.sh",
+    "dc-up": "./dockerScripts/docker-compose-up.sh",
+    "dc-down": "./dockerScripts/docker-compose-down.sh",
+    "dc-build": "./dockerScripts/docker-compose-build.sh",
+    "oc-kompose-convert": "kompose convert --provider=openshift",
+    "oc-kompose-up": "kompose convert --provider=openshift"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.3",
+    "debug": "^2.6.9",
+    "express": "^4.16.0",
+    "morgan": "^1.9.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  }
+}
