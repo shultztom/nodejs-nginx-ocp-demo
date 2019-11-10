@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: nodejs
+    image: tks23/nodejs-nginx-ocp-demo
     container_name: nodejs
     restart: unless-stopped
     networks:

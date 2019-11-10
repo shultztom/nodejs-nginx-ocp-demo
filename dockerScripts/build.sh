@@ -1,1 +1,1 @@
-docker build -t tks23/nodejs-ocp-demo:latest .
+docker build -t tks23/nodejs-nginx-ocp-demo:latest .

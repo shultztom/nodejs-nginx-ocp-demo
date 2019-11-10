@@ -1,6 +1,6 @@
 {
   "name": "nodejs-ocp-demo",
-  "version": "1.2.0",
+  "version": "1.0.0",
   "scripts": {
     "start": "node ./bin/www",
     "start:dev": "nodemon ./bin/www",
@@ -14,7 +14,7 @@
     "dc-down": "./dockerScripts/docker-compose-down.sh",
     "dc-build": "./dockerScripts/docker-compose-build.sh",
     "oc-kompose-convert": "kompose convert --provider=openshift",
-    "oc-kompose-up": "kompose convert --provider=openshift"
+    "oc-kompose-up": "./dockerScripts/kompose-up.sh"
   },
   "dependencies": {
     "cookie-parser": "^1.4.3",

@@ -1,1 +1,1 @@
-docker push tks23/nodejs-ocp-demo:latest
+docker push tks23/nodejs-nginx-ocp-demo:latest 
