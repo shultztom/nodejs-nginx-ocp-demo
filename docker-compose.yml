@@ -11,7 +11,7 @@ services:
     networks:
       - app-network
   webserver:
-    image: tks23/nginx-unprivileged
+    image: tks23/nginx-unprivileged:stable
     container_name: webserver
     restart: unless-stopped
     ports:
